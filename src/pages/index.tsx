@@ -1,10 +1,39 @@
 import { Layout } from "@/components/layouts";
-import { Typography } from "@mui/material";
+import { EntryList, NewEntry } from "@/components/ui";
+import { Card, CardContent, CardHeader, Grid } from "@mui/material";
 
 export default function HomePage() {
   return (
-    <Layout title='Home Page'>
-      <Typography variant='h1' color='primary'>Hola Mundo</Typography>
+    <Layout title='Home Open Jira'>
+      <Grid container spacing={ 2 }>
+        <Grid item xs={ 12 } sm={ 4 }>
+          <Card sx={{ height: 'calc(100vh - 100px)' }}>
+            <CardHeader title='Pendientes'/>
+            <CardContent>
+              <NewEntry />
+              <EntryList status='pending'/>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={ 12 } sm={ 4 }>
+          <Card sx={{ height: 'calc(100vh - 100px)' }}>
+            <CardHeader title='En Progreso'/>
+            <CardContent>
+              <EntryList status='in-progress'/>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={ 12 } sm={ 4 }>
+          <Card sx={{ height: 'calc(100vh - 100px)' }}>
+            <CardHeader title='Completada'/>
+            <CardContent>
+              <EntryList status='finished'/>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
     </Layout>
   )
 }
