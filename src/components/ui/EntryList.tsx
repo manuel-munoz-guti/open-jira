@@ -19,7 +19,7 @@ export const EntryList:FC<Props> = ({ status }) => {
   
   const allowDrop = ( event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
- }
+  }
 
   const onDropEntry = (event: DragEvent<HTMLDivElement>) => {
     const id = event.dataTransfer.getData('text');
