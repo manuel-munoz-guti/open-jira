@@ -1,7 +1,8 @@
 import React, { FC, useContext } from 'react';
-import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, IconButton, Link, Toolbar, Typography } from '@mui/material';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { UIContext } from '@/context/ui';
+import NextLink from 'next/link';
 
 export const Navbar: FC = () => {
 
@@ -17,7 +18,11 @@ export const Navbar: FC = () => {
             >
                 <MenuOutlinedIcon />
             </IconButton>
-            <Typography variant='h6'>OpenJira</Typography>
+            <Link component={ NextLink } href="/" underline="none">
+                <div style={{ display:'flex', flexDirection:'row', alignItems:'center' }}>
+                  <Typography variant='h6'>OpenJira</Typography>
+                </div>
+            </Link>
         </Toolbar>
     </AppBar>
   )
